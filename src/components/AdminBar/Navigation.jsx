@@ -20,9 +20,26 @@ export default class Navigation extends Component {
 
     return (
       <div className={styles.container}>
-        <AdminLink icon={'#projects-list'} to="/projects">Project list</AdminLink>
-        <AdminLink icon={'#github'} href={'https://github.com/andrii-burkivskyi/andrii-burkivskyi.github.io'}>Source</AdminLink>
-        <AdminLink icon={'#mail'} onClick={onToggleMailPopup}>Contact me</AdminLink>
+        <AdminLink
+          icon={'#projects-list'}
+          to="/projects"
+        >
+          Project list
+        </AdminLink>
+
+        <AdminLink
+          icon={'#github'}
+          href={'https://github.com/andrii-burkivskyi/portfolio'}
+        >
+          Source
+        </AdminLink>
+
+        <AdminLink
+          icon={'#mail'}
+          onClick={onToggleMailPopup}
+        >
+          Contact me
+        </AdminLink>
       </div>
     );
   }

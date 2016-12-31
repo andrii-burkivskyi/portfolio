@@ -1,0 +1,14 @@
+@import '~assets/constants';
+@import '~assets/mixins';
+
+.container {
+  @include clearfix;
+  min-width: $iphone-p;
+  min-height: 100vh;
+  padding: 85px 0;
+  background-image: url('/images/board.jpg');
+  background-size: cover;
+  @include lower-than($ipad-p) {
+    padding: 0;
+  }
+}

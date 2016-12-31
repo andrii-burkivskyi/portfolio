@@ -1,0 +1,42 @@
+@import '~assets/constants';
+@import '~assets/mixins';
+
+.container {
+  display: inline-block;
+  height: 100%;
+  margin: 0 8px;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover .icon {
+    fill: $hover-color;
+  }
+
+  &:hover .text {
+    color: $hover-color;
+  }
+
+  @include lower-than($ipad-p) {
+    width: 100%;
+  }
+}
+
+.icon {
+  display: block;
+  width: 15px;
+  height: 25px;
+  margin-right: 5px;
+  float: left;
+  fill: $main-color;
+}
+
+.text {
+  display: block;
+  float: left;
+  color: $main-color;
+  font-family: $main-font;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 25px;
+}

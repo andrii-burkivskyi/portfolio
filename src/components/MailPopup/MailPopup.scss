@@ -1,0 +1,13 @@
+@import '~assets/constants';
+
+$popup-height: 70vh;
+
+.popup {
+  position: relative;
+  width: 90%;
+  max-width: $mac-book;
+  height: $popup-height;
+  margin: 15vh auto;
+  background-color: $main-color;
+}
+

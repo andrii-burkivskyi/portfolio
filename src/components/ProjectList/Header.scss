@@ -1,0 +1,27 @@
+@import '~assets/constants';
+
+.container {
+  height: 300px;
+  background-color: $second-color;
+  background-size: cover;
+  color: $main-color;
+}
+
+.title {
+  display: inline-block;
+  width: 100%;
+  padding: 100px 20px 0;
+  font-family: $main-font;
+  font-size: 60px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.description {
+  display: inline-block;
+  width: 100%;
+  padding: 30px 20px 0;
+  font-family: $main-font;
+  font-size: 20px;
+  text-align: center;
+}

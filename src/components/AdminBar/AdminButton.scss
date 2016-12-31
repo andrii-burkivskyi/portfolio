@@ -1,0 +1,63 @@
+@import '~assets/constants';
+@import '~assets/mixins';
+
+.container {
+  display: inline-block;
+  height: 100%;
+  padding: 0 8px;
+  outline: none;
+  color: $main-color;
+  cursor: pointer;
+  user-select: none;
+  fill: $main-color;
+
+  &:hover .icon {
+    fill: $hover-color;
+  }
+
+  &:hover .text {
+    color: $hover-color;
+  }
+
+  @include lower-than($ipad-p) {
+    width: 100%;
+  }
+}
+
+.active {
+  background-color: $main-color;
+  color: $second-color;
+  fill: $second-color;
+}
+
+.disable {
+  color: $main-color-disable;
+  fill: $main-color-disable;
+
+  &:hover .icon {
+    fill: $main-color-disable;
+  }
+
+  &:hover .text {
+    color: $main-color-disable;
+  }
+}
+
+.icon {
+  display: block;
+  width: 15px;
+  height: 25px;
+  margin-right: 5px;
+  float: left;
+  fill: inherit;
+}
+
+.text {
+  display: block;
+  float: left;
+  color: inherit;
+  font-family: $main-font;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 25px;
+}

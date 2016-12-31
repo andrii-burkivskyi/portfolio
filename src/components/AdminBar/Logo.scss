@@ -1,0 +1,12 @@
+@import '~assets/constants';
+@import '~assets/mixins';
+
+.container {
+  height: 25px;
+  float: left;
+  @include lower-than($ipad-p) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

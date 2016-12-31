@@ -1,0 +1,28 @@
+@import '~assets/constants';
+
+$second-color-transparent: rgba($second-color, .3);
+$popup-height: 70vh;
+$line-height: 40px;
+
+.input {
+  display: block;
+  width: calc(100% - 20px);
+  height: $line-height;
+  margin: 0 auto;
+  padding: 0 10px;
+  border-bottom: 2px solid $second-color-transparent;
+  outline: none;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+:global(.public-DraftEditor-content) {
+  height: calc(#{$popup-height} - #{4 * $line-height});
+  padding: 0 20px;
+  border-top: 20px solid $main-color;
+  border-bottom: 20px solid $main-color;
+  font-family: $main-font;
+  font-size: 18px;
+  line-height: 24px;
+  overflow: auto;
+}

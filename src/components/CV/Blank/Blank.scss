@@ -9,9 +9,12 @@
   margin: 0 auto;
   background-image: linear-gradient(to right, $second-color 260px, $main-color 260px);
   box-shadow: 0 10px 80px 2px $black;
+
   @include lower-than($ipad-p) {
     width: 100%;
+    margin-top: 30px;
   }
+
   @include lower-than($iphone-l) {
     background-image: linear-gradient(to right, $second-color, $second-color);
   }

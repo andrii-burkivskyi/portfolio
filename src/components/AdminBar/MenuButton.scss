@@ -45,7 +45,7 @@
 
 :global(.menu_open) .container {
   & span:nth-child(1) {
-    top: 5px;
+    top: 25%;
     transform: rotate(45deg);
   }
 
@@ -55,7 +55,7 @@
   }
 
   & span:nth-child(3) {
-    top: 19px;
+    top: 80%;
     transform: rotate(-45deg);
   }
 }

@@ -13,7 +13,9 @@
   background-color: $second-color;
   cursor: pointer;
   z-index: 1000;
+
   @include lower-than($ipad-p) {
+    height: 30px;
     padding: 0;
     border-bottom: 1px solid $main-color;
     box-shadow: 0 -3px 20px 1px $black;

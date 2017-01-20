@@ -26,6 +26,10 @@ function* sendMail() {
     yield put(clearForm());
   } catch (error) {
     yield put({ type: SUBMIT_FORM.FAILURE, error });
+
+    yield delay(2000);
+
+    yield put(closeModal('mailPopup'));
   }
 }
 

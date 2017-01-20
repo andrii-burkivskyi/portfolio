@@ -9,7 +9,7 @@ import styles from './AdminBar.scss';
 
 function mapStateToProps(state) {
   return {
-    isOpen: state.getIn(['adminBar', 'isOpen'])
+    isOpen: state.getIn(['modals', 'adminBar', 'isOpen'])
   };
 }
 

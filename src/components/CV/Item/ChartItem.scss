@@ -26,6 +26,7 @@
 
   &.black {
     width: 50%;
+    height: 15px; // fix ie bag
     margin-bottom: 5px;
     float: left;
     color: $second-color;
@@ -42,6 +43,7 @@
 }
 
 .text {
+  width: 60%; // ff fix item align
   height: 100%;
   padding-left: 28px;
   color: inherit;
@@ -49,13 +51,16 @@
   font-size: 12px;
   font-weight: inherit;
   line-height: 16px;
+  text-align: left;
   text-transform: uppercase;
   -webkit-font-smoothing: antialised; // sass-lint:disable-line no-vendor-prefixes
 }
 
 .chart {
-  width: 79px;
+  display: block;
+  width: 40%;
   height: 8px;
+  float: left;
   border: 1px solid $main-color;
   border-radius: 5px;
   background-image: linear-gradient(to top, $main-color, $main-color);

@@ -1,0 +1,29 @@
+@import '~assets/constants';
+@import '~assets/mixins';
+
+.container {
+  @include lower-than($ipad-p) {
+    padding: 50px;
+  }
+
+  @include lower-than($iphone-l) {
+    padding: 20px;
+  }
+
+  padding: 100px;
+  border-top: 2px solid $movies-blue-color;
+  border-bottom: 2px solid $movies-blue-color;
+}
+
+.title {
+  @include lower-than($ipad-p) {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  color: $movies-blue-color;
+  font-family: $varela-round;
+  font-size: 80px;
+  line-height: 84px;
+  text-align: center;
+}

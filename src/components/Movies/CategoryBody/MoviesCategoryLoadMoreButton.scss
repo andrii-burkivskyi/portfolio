@@ -1,0 +1,15 @@
+@import '~assets/constants';
+
+.container {
+  display: block;
+  margin: 0 auto 40px;
+  padding: 10px;
+  border: 1px solid $movies-blue-color;
+  color: $movies-blue-color;
+  font-family: $varela-round;
+
+  &:hover {
+    background-color: $movies-blue-color;
+    color: $main-color;
+  }
+}

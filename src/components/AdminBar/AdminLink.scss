@@ -4,7 +4,8 @@
 .container {
   display: inline-block;
   height: 25px;
-  margin: 0 8px;
+  margin-left: 8px;
+  float: left;
   outline: none;
   cursor: pointer;
   user-select: none;
@@ -18,7 +19,7 @@
   }
 
   @include lower-than($ipad-p) {
-    width: 100%;
+    width: 80%;
   }
 }
 

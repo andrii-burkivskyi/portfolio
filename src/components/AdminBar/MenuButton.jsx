@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
-import { adminBarToggle } from 'actions/adminBar.actions.js';
+import { toggleModal } from 'actions/modals.actions.js';
 
 import styles from './MenuButton.scss';
 
 function mapStateToProps(state) {
   return {
-    isOpen: state.getIn(['adminBar', 'isOpen'])
+    isOpen: state.getIn(['modals', 'adminBar', 'isOpen'])
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onAdminBarToggle: () => dispatch(adminBarToggle())
+    onAdminBarToggle: () => dispatch(toggleModal('adminBar'))
   };
 }
 

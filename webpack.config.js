@@ -19,7 +19,7 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 module.exports = {
-  entry: './src/client.js',
+  entry: ['babel-polyfill', './src/client.js'],
 
   output: {
     path: path.resolve(__dirname, 'public', 'build'),
@@ -35,7 +35,7 @@ module.exports = {
       assets: 'src/assets',
       components: 'src/components',
       middleware: 'src/core/middleware',
-      routes: 'src/core/routes',
+      routes: 'src/routes',
       store: 'src/core/store',
       utils: 'src/core/utils',
       pages: 'src/pages',

@@ -1,0 +1,52 @@
+@import '~assets/constants';
+@import '~assets/mixins';
+
+.container {
+  @include clearfix;
+  margin-bottom: 10px;
+  color: $movies-blue-color;
+  fill: $movies-blue-color;
+}
+
+.title {
+  display: inline;
+  padding: 0 5px;
+  float: left;
+  line-height: 22px;
+}
+
+.navigation {
+  display: flex;
+  padding: 0 5px;
+  float: right;
+  text-transform: uppercase;
+}
+
+.button {
+  display: inline-block;
+  height: 22px;
+  margin-right: 5px;
+  padding: 0 5px;
+  border: 1px solid $movies-blue-color;
+  border-radius: 1px;
+  font-size: 12px;
+  line-height: 20px;
+
+  &:hover {
+    background-color: $movies-blue-color;
+    color: $main-color;
+    fill: $main-color;
+  }
+}
+
+.icon_prev,
+.icon_next {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  float: left;
+}
+
+.icon_prev {
+  transform: rotateY(180deg);
+}

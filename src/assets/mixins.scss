@@ -1,33 +1,34 @@
-@mixin lower-than ($width){
-  @media only screen and (max-width: $width){
+@mixin lower-than ($width) {
+  @media only screen and (max-width: $width) {
     @content;
   }
 }
 
-@mixin bigger-than ($width){
-  @media only screen and (min-width: $width + 1){
+@mixin bigger-than ($width) {
+  @media only screen and (min-width: $width + 1) {
     @content;
   }
 }
 
-@mixin device-lower-than ($width){
-  @media only screen and (max-device: $width){
+@mixin device-lower-than ($width) {
+  @media only screen and (max-device: $width) {
     @content;
   }
 }
 
-@mixin device-bigger-than ($width){
-  @media only screen and (min-device: $width + 1){
+@mixin device-bigger-than ($width) {
+  @media only screen and (min-device: $width + 1) {
     @content;
   }
 }
 
-@mixin clearfix(){
-  &:after{
-    content: '';
+@mixin clearfix() {
+  &:after {
     display: block;
     height: 0;
     clear: both;
+    content: '';
     visibility: hidden;
   }
 }
+

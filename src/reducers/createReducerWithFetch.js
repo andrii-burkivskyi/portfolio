@@ -1,8 +1,8 @@
-import { fromJS } from 'immutable';
+import { fromJS, OrderedSet } from 'immutable';
 
 const initialState = fromJS({
   isFetching: false,
-  data: [],
+  data: new OrderedSet(),
   error: null
 });
 
@@ -10,12 +10,13 @@ export default function createReducerWithFetch(parameters) {
   const {
     types,
     getDataFromAction = (action) => action.response.get('result'),
-    getErrorFromAction = (action) => action.error
+    getErrorFromAction = (action) => action.error,
+    getPaginationFromAction = () => false
   } = parameters;
 
 
-  if (!Array.isArray(types) || types.length !== 3) {
-    throw new Error('Expected [ types ] tobe an array with 3 elements.');
+  if (!Array.isArray(types) || types.length !== 5) {
+    throw new Error('Expected [ types ] to be an array with 5 elements.');
   }
 
   if (typeof getDataFromAction !== 'function') {
@@ -26,7 +27,11 @@ export default function createReducerWithFetch(parameters) {
     throw new Error('Expected [ getErrorFromAction ] to be a function.');
   }
 
-  const [REQUEST, SUCCESS, FAILURE] = types;
+  if (typeof getPaginationFromAction !== 'function') {
+    throw new Error('Expected [ getPaginationFromAction ] to be a function.');
+  }
+
+  const [REQUEST, SKIPPED, SUCCESS, FAILURE, CLEAR] = types;
 
   return (state = initialState, action) => {
     switch (action.type) {
@@ -34,11 +39,16 @@ export default function createReducerWithFetch(parameters) {
         return state.set('isFetching', true);
       }
 
+      case SKIPPED: {
+        return state.set('isFetching', false);
+      }
+
       case SUCCESS: {
         return state
           .set('isFetching', false)
-          .set('data', getDataFromAction(action))
-          .set('error', null);
+          .set('data', state.get('data').union(getDataFromAction(action)))
+          .set('error', null)
+          .merge(getPaginationFromAction(action) || {});
       }
 
       case FAILURE: {
@@ -46,6 +56,11 @@ export default function createReducerWithFetch(parameters) {
           .set('isFetching', false)
           .set('error', getErrorFromAction(action));
       }
+
+      case CLEAR: {
+        return initialState;
+      }
+
       default: {
         return state;
       }

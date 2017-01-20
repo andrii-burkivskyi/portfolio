@@ -1,2 +1,2 @@
 # andrii-burkivskyi.github.io
-portfolio
+Portfolio

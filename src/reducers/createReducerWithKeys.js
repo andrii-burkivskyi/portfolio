@@ -7,8 +7,8 @@ export default function createReducerWithKeys(parameters) {
     getKeyFromAction = (action) => action.key
   } = parameters;
 
-  if (!Array.isArray(types) || types.length !== 3) {
-    throw new Error('Expected [ types ] tobe an array with 3 elements.');
+  if (!Array.isArray(types) || types.length !== 5) {
+    throw new Error('Expected [ types ] to be an array with 5 elements.');
   }
 
   if (typeof reducer !== 'function') {
@@ -19,13 +19,15 @@ export default function createReducerWithKeys(parameters) {
     throw new Error('Expected [ getKeyFromAction ] to be a function.');
   }
 
-  const [REQUEST, SUCCESS, FAILURE] = types;
+  const [REQUEST, SKIPPED, SUCCESS, FAILURE, CLEAR] = types;
 
   return (state = fromJS({}), action) => {
     switch (action.type) {
       case REQUEST:
+      case SKIPPED:
       case SUCCESS:
-      case FAILURE: {
+      case FAILURE:
+      case CLEAR: {
         const key = getKeyFromAction(action);
 
         if (typeof key !== 'string') {

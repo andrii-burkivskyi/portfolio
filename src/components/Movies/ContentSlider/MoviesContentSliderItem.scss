@@ -1,0 +1,70 @@
+@import '~assets/constants';
+
+.container {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  font-family: $varela-round;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+
+  & svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.title {
+  margin: 3px;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.genres {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.popularity {
+  display: block;
+  height: 18px;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: right;
+}
+
+.popularity_icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  float: right;
+  fill: $movies-yellow-color;
+}
+
+.popularity_text {
+  display: inline-block;
+  height: 18px;
+  float: right;
+  line-height: 18px;
+}
+

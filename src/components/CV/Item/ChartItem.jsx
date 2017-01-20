@@ -20,7 +20,7 @@ export default class ChartItem extends Component {
         <span
           className={styles.chart}
           style={{ backgroundSize: `${value} 100%` }}
-        />
+        >{' '}</span>
       </div>
     );
   }

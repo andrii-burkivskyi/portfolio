@@ -1,0 +1,16 @@
+@import '~assets/constants';
+@import '~assets/mixins';
+
+.container {
+  @include lower-than($iphone-l) {
+    width: 100%;
+  }
+
+  width: 300px;
+  height: auto;
+  float: left;
+}
+
+.image {
+  margin-bottom: 20px;
+}

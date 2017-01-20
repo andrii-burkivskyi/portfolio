@@ -8,17 +8,17 @@
 
 .image {
   display: block;
-  width: 115px - 1px; //IE fix: image width bigger then svg height in IE
-  height: 115px - 1px; //IE fix: image height bigger then svg height in IE
+  width: 115px; //IE fix: image width bigger then svg height in IE
+  height: 115px; //IE fix: image height bigger then svg height in IE
   margin: 0 auto;
 }
 
 .mask {
   display: block;
-  width: 115px;
-  height: 115px;
+  width: 118px;
+  height: 118px;
   margin: 0 auto;
-  margin-top: -115px + 1px; //Firefox fix: appear small strip at bottom
+  margin-top: -115px; //Firefox fix: appear small strip at bottom
   fill: $second-color;
 }
 

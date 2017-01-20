@@ -1,8 +1,11 @@
-*{
+// scss-lint:disable all
+* {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -17,10 +20,12 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video{
+time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button {
@@ -30,46 +35,91 @@ button {
 }
 
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section{
+footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-html{
+html {
   font-size: 16px;
 }
 
-body{
+body {
   line-height: 1;
 }
 
-ol, ul{
+ol, ul {
   list-style: none;
 }
 
-blockquote, q{
+blockquote, q {
   quotes: none;
 }
 
 blockquote:before, blockquote:after,
-q:before, q:after{
+q:before, q:after {
   content: '';
   content: none;
 }
 
-table{
+table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-a{
-  text-decoration: inherit;
-  font-size: inherit;
+a {
   color: inherit;
+  font-size: inherit;
+  text-decoration: inherit;
 }
 
-:global(.is_hide, .is_disable){
+:global(.is_hide, .is_disable) {
   position: absolute !important;
   left: -9999px;
 
   visibility: hidden;
 }
+
+input,
+button,
+textarea {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+input {
+  word-break: normal;
+  &:invalid {
+    box-shadow: none;
+  }
+  &[type='number'] {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      opacity: .5;
+    }
+  }
+  &[type='search'] {
+    -webkit-appearance: none;
+    border-radius: 0;
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+  }
+
+  &::-ms-clear {
+    display: none;
+  }
+}
+// scss-lint:enable all

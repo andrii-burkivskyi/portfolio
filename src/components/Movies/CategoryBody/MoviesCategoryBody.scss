@@ -1,0 +1,14 @@
+@import '~assets/constants';
+@import '~assets/mixins';
+
+.container {
+  @include lower-than($iphone-l) {
+    margin-top: 25px;
+  }
+
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: $movies-content-wrapper - 10px;
+  margin: 60px auto;
+}

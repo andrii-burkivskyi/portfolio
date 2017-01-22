@@ -1,14 +1,21 @@
 import { fromJS, OrderedSet } from 'immutable';
 
-const initialState = fromJS({
+const initialStateList = fromJS({
   isFetching: false,
   data: new OrderedSet(),
+  error: null
+});
+
+const initialStateObject = fromJS({
+  isFetching: false,
+  data: null,
   error: null
 });
 
 export default function createReducerWithFetch(parameters) {
   const {
     types,
+    isObject,
     getDataFromAction = (action) => action.response.get('result'),
     getErrorFromAction = (action) => action.error,
     getPaginationFromAction = () => false
@@ -32,6 +39,7 @@ export default function createReducerWithFetch(parameters) {
   }
 
   const [REQUEST, SKIPPED, SUCCESS, FAILURE, CLEAR] = types;
+  const initialState = isObject ? initialStateObject : initialStateList;
 
   return (state = initialState, action) => {
     switch (action.type) {
@@ -44,9 +52,13 @@ export default function createReducerWithFetch(parameters) {
       }
 
       case SUCCESS: {
+        const data = isObject
+          ? getDataFromAction(action)
+          : state.get('data').union(getDataFromAction(action));
+
         return state
           .set('isFetching', false)
-          .set('data', state.get('data').union(getDataFromAction(action)))
+          .set('data', data)
           .set('error', null)
           .merge(getPaginationFromAction(action) || {});
       }

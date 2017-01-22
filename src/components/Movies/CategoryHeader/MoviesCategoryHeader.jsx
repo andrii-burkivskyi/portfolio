@@ -8,7 +8,7 @@ export default class MoviesCategoryHeader extends Component {
     return (
       <div className={styles.container}>
         <h2 className={styles.title}>
-          {`${title} movies`}
+          {title}
         </h2>
       </div>
     );

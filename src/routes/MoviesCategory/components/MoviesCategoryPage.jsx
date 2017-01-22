@@ -38,7 +38,7 @@ export default class MoviesCategoryPage extends Component {
     return (
       <div>
         <MoviesCategoryHeader
-          title={categoryNormalize(category)}
+          title={`${categoryNormalize(category)} movies`}
         />
 
         <MoviesCategoryBody

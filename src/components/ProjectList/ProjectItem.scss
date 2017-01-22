@@ -64,16 +64,17 @@
 }
 
 .technologies {
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 
   @include lower-than($iphone-l) {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
 }
 
 .technology {
   padding-left: 20px;
   background: url('/images/checked.svg') no-repeat left center;
+  background-size: 15px 15px;
   font-family: $main-font;
   font-size: 18px;
   font-style: italic;
@@ -83,7 +84,7 @@
 .link {
   display: inline-block;
   align-self: flex-end;
-  padding: 20px;
+  padding: 10px;
   transition: color .5s, background-color .5s;
   border: 1px solid $second-color;
   background-color: $main-color;
@@ -98,6 +99,6 @@
 
   @include lower-than($iphone-l) {
     align-self: center;
-    padding: 15px;
+    padding: 10px;
   }
 }

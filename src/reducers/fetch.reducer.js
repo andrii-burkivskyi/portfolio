@@ -16,6 +16,7 @@ export const smallData = createReducerWithKeys({
   types: FETCH_HEADER.ALL,
   reducer: createReducerWithFetch({
     types: FETCH_HEADER.ALL,
+    isObject: true,
     getDataFromAction: (action) => action.response
   })
 });

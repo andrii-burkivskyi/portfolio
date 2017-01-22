@@ -7,6 +7,15 @@
 }
 
 .info_box {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  margin: 40px;
+  padding: 20px;
+  background-color: rgba($main-color, .8);
+
   @include lower-than($ipad-p) {
     width: 100%;
     margin: 0;
@@ -21,15 +30,6 @@
   @include lower-than($iphone-p) {
     position: relative;
   }
-
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  margin: 40px;
-  padding: 20px;
-  background-color: rgba($main-color, .8);
 }
 
 .image {
@@ -48,6 +48,11 @@
 }
 
 .title {
+  margin-bottom: 20px;
+  color: $movies-blue-color;
+  font-family: $varela-round;
+  font-size: 40px;
+
   @include lower-than($mac-book) {
     font-size: 30px;
   }
@@ -63,18 +68,9 @@
     white-space: nowrap;
     overflow: hidden;
   }
-
-  margin-bottom: 20px;
-  color: $movies-blue-color;
-  font-family: $varela-round;
-  font-size: 40px;
 }
 
 .delimiter {
-  @include lower-than($iphone-p) {
-    display: none;
-  }
-
   display: block;
   width: 140px;
   height: 2px;
@@ -83,9 +79,21 @@
   float: left;
   border-radius: 1px;
   background-color: $movies-yellow-color;
+
+  @include lower-than($iphone-p) {
+    display: none;
+  }
 }
 
 .overview {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  color: $movies-blue-color;
+  font-family: $varela-round;
+  font-size: 20px;
+  line-height: 22px;
+
   @include lower-than($mac-book) {
     font-size: 14px;
     line-height: 18px;
@@ -100,17 +108,32 @@
   @include lower-than($iphone-p) {
     display: none;
   }
-
-  display: block;
-  width: 100%;
-  margin-bottom: 20px;
-  color: $movies-blue-color;
-  font-family: $varela-round;
-  font-size: 20px;
-  line-height: 22px;
 }
 
 .link {
+  padding: 10px;
+  float: right;
+  transition: color .5s, fill .5s, background-color .5s;
+  border: 1px solid $movies-blue-color;
+  color: $movies-blue-color;
+  font-family: $varela-round;
+
+  & .icon {
+    transition: color .5s, fill .5s, background-color .5s;
+    fill: $movies-blue-color;
+  }
+
+  &:hover {
+    transition: color .5s, fill .5s, background-color .5s;
+    background-color: $movies-blue-color;
+    color: $main-color;
+
+    & .icon {
+      transition: color .5s, fill .5s, background-color .5s;
+      fill: $main-color;
+    }
+  }
+
   @include lower-than($ipad-p) {
     padding: 5px 10px;
     font-size: 14px;
@@ -119,33 +142,18 @@
   @include lower-than($iphone-p) {
     display: none;
   }
-
-  padding: 10px;
-  float: right;
-  border: 1px solid $movies-blue-color;
-  color: $movies-blue-color;
-  font-family: $varela-round;
-
-  &:hover {
-    background-color: $movies-blue-color;
-    color: $main-color;
-
-    & .icon {
-      fill: $main-color;
-    }
-  }
 }
 
 .icon {
-  @include lower-than($ipad-p) {
-    transform: translateY(3px);
-  }
-
   width: 15px;
   height: 15px;
   margin-left: 10px;
   transform: translateY(2px);
   fill: $movies-blue-color;
+
+  @include lower-than($ipad-p) {
+    transform: translateY(3px);
+  }
 }
 
 :global(.slick-slide.slick-active) {

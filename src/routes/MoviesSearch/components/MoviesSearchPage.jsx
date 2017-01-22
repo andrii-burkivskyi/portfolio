@@ -7,6 +7,7 @@ import {
   getMoviesBySearch
 } from 'selectors/movies.selector.js';
 
+import MoviesCategoryHeader from 'components/Movies/CategoryHeader/MoviesCategoryHeader.jsx';
 import MoviesCategoryBody from 'components/Movies/CategoryBody/MoviesCategoryBody.jsx';
 import MoviesCategoryLoadMoreButton from 'components/Movies/CategoryBody/MoviesCategoryLoadMoreButton.jsx';
 
@@ -33,6 +34,10 @@ export default class MoviesSearchPage extends Component {
 
     return (
       <div>
+        <MoviesCategoryHeader
+          title={'Searched movies'}
+        />
+
         <MoviesCategoryBody
           movies={movies}
         />

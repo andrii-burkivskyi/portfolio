@@ -7,7 +7,6 @@ export default class ProjectItem extends Component {
   render() {
     const {
       image,
-      description,
       technologies,
       title,
       url
@@ -21,8 +20,6 @@ export default class ProjectItem extends Component {
 
         <div className={styles.right_block}>
           <h1 className={styles.title}>{title}</h1>
-
-          <span className={styles.description}>{description}</span>
 
           <ul className={styles.technologies}>
             {

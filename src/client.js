@@ -1,11 +1,14 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
+import Perf from 'react-addons-perf';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
 
 import routes from 'routes/App/AppRouter.js';
 import store from 'store';
+
+window.Perf = Perf;
 
 emailjs.init('user_uu6AY95f7rHrMsnisZpgt');
 

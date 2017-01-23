@@ -7,10 +7,13 @@ import Icon from 'components/Icon/Icon.jsx';
 import styles from './MoviesCategoryItem.scss';
 
 export default class MoviesCategoryItem extends Component {
+  shouldComponentUpdate(nextProps) {
+    return this.props.id !== nextProps.id;
+  }
+
   render() {
     const { id, title, poster, popularity, genres } = this.props;
     const posterSrc = poster && `https://image.tmdb.org/t/p/w300${poster}`;
-
 
     return (
       <Link to={`/movies/single/${id}`} className={styles.container}>

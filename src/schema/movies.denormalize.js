@@ -1,14 +1,17 @@
 import { List, Map } from 'immutable';
 
+const defaultList = new List();
+const defaultMap = new Map();
+
 export function movieSingleDenormalize(movieEntities, genresEntities, castEntities) {
-  let movie = movieEntities || new Map();
+  let movie = movieEntities || defaultMap;
 
   if (!genresEntities) {
-    movie = movie.set('genres', new List());
+    movie = movie.set('genres', defaultList);
   }
 
   if (!castEntities) {
-    movie = movie.set('cast', new List());
+    movie = movie.set('cast', defaultList);
   }
 
   if (genresEntities && movie.has('genres')) {
@@ -29,10 +32,10 @@ export function movieSingleDenormalize(movieEntities, genresEntities, castEntiti
 }
 
 export function movieDenormalize(movieEntities, genresEntities) {
-  let movie = movieEntities || new Map();
+  let movie = movieEntities || defaultMap;
 
   if (!genresEntities) {
-    movie = movie.set('genre_ids', new List());
+    movie = movie.set('genre_ids', defaultList);
   }
 
   if (genresEntities && movie.has('genre_ids')) {

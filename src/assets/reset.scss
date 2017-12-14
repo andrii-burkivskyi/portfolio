@@ -72,7 +72,7 @@ a {
   text-decoration: inherit;
 }
 
-:global(.is_hide, .is_disable) {
+:global(.is_hide), :global(.is_disable) {
   position: absolute !important;
   left: -9999px;
 

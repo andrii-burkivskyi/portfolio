@@ -1,0 +1,19 @@
+@import '~assets';
+
+$second-color-transparent: rgba($second-color, .3);
+$popup-height: 70vh;
+$line-height: 40px;
+
+.field {
+  width: 100%;
+  height: calc(#{$popup-height} - #{4 * $line-height});
+  padding: 0 20px;
+  border-top: 20px solid $main-color;
+  border-bottom: 20px solid $main-color;
+  outline: none;
+  font-family: $main-font;
+  font-size: 18px;
+  line-height: 24px;
+  overflow: auto;
+  resize: none;
+}

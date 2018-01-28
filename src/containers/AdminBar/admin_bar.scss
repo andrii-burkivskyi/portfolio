@@ -1,0 +1,55 @@
+@import '~assets/global';
+@import '~assets';
+
+.container {
+  @include clearfix;
+  @include breakpoint($ipad-p) {
+    height: 30px;
+    padding: 0;
+    border-bottom: 1px solid $main-color;
+    box-shadow: 0 -3px 20px 1px $black;
+  }
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  padding: 0 5px;
+  background-color: $second-color;
+  cursor: pointer;
+  z-index: 1000;
+
+  // Modifier is_open
+  &.is_open {
+    height: 100%;
+  }
+}
+
+.logo {
+  height: 25px;
+  float: left;
+
+  @include breakpoint($ipad-p) {
+    width: 100%;
+    height: 30px;
+    margin-top: 2px;
+  }
+}
+
+.navigation {
+  @include breakpoint($ipad-p) {
+    display: none;
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  height: 25px;
+  float: left;
+
+  .is_open & {
+    display: block;
+    opacity: 1;
+  }
+}

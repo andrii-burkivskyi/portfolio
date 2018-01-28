@@ -1,0 +1,33 @@
+@import '~assets';
+
+.container {
+  @include breakpoint($ipad-p) {
+    padding: 0;
+  }
+
+  @include clearfix;
+  min-width: $iphone-p;
+  min-height: 100vh;
+  padding: 85px 0;
+  background-image: url('/images/board.jpg');
+  background-size: cover;
+}
+
+.blank {
+  @include breakpoint($ipad-p) {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  @include breakpoint($iphone-l) {
+    background-image: linear-gradient(to right, $second-color, $second-color);
+  }
+
+  @include clearfix;
+  display: block;
+  width: $ipad-p;
+  min-height: $ipad-l;
+  margin: 0 auto;
+  background-image: linear-gradient(to right, $second-color 260px, $main-color 260px);
+  box-shadow: 0 10px 80px 2px $black;
+}

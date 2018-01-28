@@ -1,0 +1,13 @@
+@import '~assets';
+
+.container {
+  @include breakpoint($mac-book) {
+    padding: 0;
+  }
+
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto 80px;
+  padding: 0 100px;
+}
+

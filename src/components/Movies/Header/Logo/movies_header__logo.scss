@@ -1,0 +1,20 @@
+@import '~assets';
+
+.container {
+  display: block;
+  float: left;
+}
+
+.logo {
+  display: block;
+  float: left;
+  transition: color .3s;
+  color: $movies-blue-color;
+  font-family: $chewy;
+  font-size: 30px;
+  line-height: $movies-header-height;
+
+  &:hover {
+    color: rgba($movies-blue-color, .8);
+  }
+}

@@ -1,0 +1,87 @@
+@function get-justify-content($direction, $horizontal-align, $vertical-align ) {
+  @if $direction == row {
+    @if $horizontal-align == left {
+      @return (flex-start);
+    }
+
+    @else if $horizontal-align == center {
+      @return (center);
+    }
+
+    @else if $horizontal-align == right {
+      @return (flex-end);
+    }
+
+    @else if $horizontal-align == justify {
+      @return (space-between);
+    }
+
+    @else if $horizontal-align == space-around {
+      @return (space-around);
+    }
+  }
+
+  @else if $direction == column {
+    @if $vertical-align == top {
+      @return (flex-start);
+    }
+
+    @else if $vertical-align == center {
+      @return (center);
+    }
+
+    @else if $vertical-align == bottom {
+      @return (flex-end);
+    }
+
+    @else if $vertical-align == justify {
+      @return (space-between);
+    }
+
+    @else if $vertical-align == space-around {
+      @return (space-around);
+    }
+  }
+
+  @return none;
+};
+
+@function get-align-iems($direction, $horizontal-align, $vertical-align) {
+  @if $direction == row {
+    @if $vertical-align == top {
+      @return (flex-start);
+    }
+
+    @else if $vertical-align == center {
+      @return (center);
+    }
+
+    @else if $vertical-align == bottom {
+      @return (flex-end);
+    }
+
+    @else if $vertical-align == stretch {
+      @return (stretch);
+    }
+  }
+
+  @else if ($direction == column) {
+    @if $horizontal-align == right {
+      @return (flex-end);
+    }
+
+    @else if $horizontal-align == center {
+      @return (center);
+    }
+
+    @else if $horizontal-align == left {
+      @return (flex-start);
+    }
+
+    @else if $horizontal-align == stretch {
+      @return (stretch);
+    }
+  }
+
+  @return none;
+}

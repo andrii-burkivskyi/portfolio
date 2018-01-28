@@ -1,0 +1,11 @@
+@import '~assets';
+
+.single {
+  @include clearfix();
+
+  max-width: $movies-content-wrapper;
+  margin: 30px auto;
+  padding: 0 10px;
+  color: $movies-blue-color;
+  font-family: $varela-round;
+}

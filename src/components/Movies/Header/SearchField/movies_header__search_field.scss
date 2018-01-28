@@ -1,0 +1,36 @@
+@import '~assets';
+
+.container {
+  position: relative;
+  height: $movies-header-height;
+  float: right;
+}
+
+.search {
+  width: 200px;
+  margin: 15px 0;
+  padding: 4px 30px 4px 10px;
+  transition: border .3s;
+  border: 1px solid rgba($movies-blue-color, .3);
+  outline: none;
+  font-size: 16px;
+  line-height: 20px;
+
+  &:focus {
+    border: 1px solid rgba($movies-blue-color, .8);
+
+    &+svg {
+      fill: rgba($movies-blue-color, .8);
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  transition: fill .3s;
+  fill: rgba($movies-blue-color, .3);
+}

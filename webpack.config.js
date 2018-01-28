@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const IS_DEVELOPMENT = NODE_ENV === 'development';
@@ -24,27 +25,21 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'public', 'build'),
     publicPath: '/build/',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
 
   resolve: {
-    root: path.resolve(__dirname),
     alias: {
-      actions: 'src/actions',
-      api: 'src/api',
-      assets: 'src/assets',
-      components: 'src/components',
-      middleware: 'src/core/middleware',
-      routes: 'src/routes',
-      store: 'src/core/store',
-      utils: 'src/core/utils',
-      pages: 'src/pages',
-      reducers: 'src/reducers',
-      sagas: 'src/sagas',
-      schema: 'src/schema',
-      selectors: 'src/selectors'
+      api: path.resolve(__dirname, 'src', 'api'),
+      assets: path.resolve(__dirname, 'src', 'assets'),
+      components: path.resolve(__dirname, 'src', 'components'),
+      containers: path.resolve(__dirname, 'src', 'containers'),
+      store: path.resolve(__dirname, 'src', 'store'),
+      utils: path.resolve(__dirname, 'src', 'utils'),
+      core: path.resolve(__dirname, 'src', 'core'),
+      pages: path.resolve(__dirname, 'src', 'pages')
     },
-    extensions: ['', '.js', '.jsx', '.sass', '.scss']
+    extensions: ['*', '.js', '.jsx', '.sass', '.scss']
   },
 
   watch: IS_DEVELOPMENT,
@@ -53,57 +48,62 @@ module.exports = {
     aggregateTimeout: 100
   },
 
-  devtool: IS_DEVELOPMENT ? SOURCEMAP_TYPE : null,
-
-  debug: IS_DEVELOPMENT,
-
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /\/node_modules\//,
-        loaders: ['react-hot', 'babel', 'eslint']
+        use: ['babel-loader']
       },
       {
         test: /\.s(a|c)ss$/,
         exclude: /\/node_modules\//,
-        loaders: [
-          'style',
-          'css?modules&localIdentName=[name]__[local]',
-          'postcss?parser=postcss-scss',
-          'sass',
-          'sasslint'
+        use: [
+          'style-loader',
+          'css-loader?modules&localIdentName=[name]--[local]',
+          {
+            loader: 'postcss-loader',
+            options: {
+              parser: 'postcss-scss',
+              plugins: (bundler) => [
+                require('postcss-import')({ addDependencyTo: bundler }),
+                require('precss')(),
+                require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
+              ]
+            }
+          },
+          'sass-loader'
         ]
       },
       {
         test: /\.css$/,
-        loaders: [
-          'style',
-          'css?modules&localIdentName=[local]'
+        use: [
+          'style-loader',
+          'css-loader?modules&localIdentName=[local]'
         ]
       }
     ]
   },
 
-  sasslint: {
-    configFile: '.sass-lint.yml'
-  },
-
-  postcss: function plugins(bundler) {
-    return [
-      require('postcss-import')({ addDependencyTo: bundler }),
-      require('precss')(),
-      require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
-    ];
-  },
-
   plugins: [
+    new BundleAnalyzerPlugin(),
     new WebpackNotifierPlugin({ title: 'Webpack' }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
     }),
-    new webpack.NoErrorsPlugin()
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en\-gb/),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.LoaderOptionsPlugin({ debug: true }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      minChunks: function (module) {
+        if(module.resource && (/^.*\.(css|scss)$/).test(module.resource)) {
+          return false;
+        }
+        return module.context && module.context.includes("node_modules");
+      }
+    })
   ],
 
   devServer: {

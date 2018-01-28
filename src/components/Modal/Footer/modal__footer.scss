@@ -1,0 +1,11 @@
+@import '~assets';
+
+$footer-height: 40px;
+$second-color-light: rgba($second-color, .1);
+
+.container {
+  @include flexbox(row, right, center, false);
+  height: $footer-height;
+  border-top: 1px solid $second-color;
+  background-color: $second-color-light;
+}

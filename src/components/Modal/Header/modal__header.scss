@@ -1,0 +1,36 @@
+@import '~assets';
+
+$header-height: 40px;
+$gutter: 20px;
+
+.container {
+  @include flexbox(row, left, center, false);
+
+  height: $header-height;
+  background-color: $second-color;
+}
+
+.title {
+  padding: 0 $gutter;
+  color: $main-color;
+  font-family: $main-font;
+  font-size: 18px;
+  line-height: $header-height;
+}
+
+.button {
+  width: $header-height;
+  height: $header-height;
+  margin-left: auto;
+
+  &:hover .icon {
+    transform: rotateZ(45deg);
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  transition: transform .1s ease-out 0s;
+  fill: $main-color;
+}

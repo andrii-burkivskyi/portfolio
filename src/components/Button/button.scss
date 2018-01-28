@@ -1,0 +1,33 @@
+@import './theme/popup';
+@import './theme/movies';
+
+.container {
+  @include flexbox(row, left, center, false);
+  width: auto;
+  cursor: pointer;
+}
+
+.icon,
+.text {
+  display: inline-block;
+}
+
+.icon_left {
+  & .icon {
+    order: 0;
+  }
+
+  & .text {
+    order: 1;
+  }
+}
+
+.icon_right {
+  & .icon {
+    order: 1;
+  }
+
+  & .text {
+    order: 0;
+  }
+}

@@ -1,0 +1,8 @@
+@import '~assets';
+
+.container {
+  max-width: $movies-content-wrapper + 10px; // add 2 side padding of slider item
+  margin: 0 auto 60px;
+  padding: 0 10px;
+  font-family: $varela-round;
+}

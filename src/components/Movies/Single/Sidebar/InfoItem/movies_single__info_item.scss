@@ -1,0 +1,23 @@
+@import '~assets';
+
+.container {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba($movies-blue-color, .3);
+}
+
+.label {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.text {
+  display: inline-block;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 100;
+  line-height: 18px;
+}

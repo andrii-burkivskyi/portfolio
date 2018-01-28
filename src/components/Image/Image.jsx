@@ -20,7 +20,14 @@ export default class Image extends Component {
   }
 
   render() {
-    const { className, src, alt, width, height, scale } = this.props;
+    const {
+      className,
+      src,
+      alt,
+      width,
+      height,
+      scale
+    } = this.props;
     const { isLoaded } = this.state;
     const image = {
       display: (isLoaded ? 'block' : 'none'),

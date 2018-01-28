@@ -1,0 +1,160 @@
+@import '~assets';
+
+.container {
+  @include clearfix;
+  position: relative;
+}
+
+.info_box {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  margin: 40px;
+  padding: 20px;
+  background-color: rgba($main-color, .8);
+
+  @include breakpoint($ipad-p) {
+    width: 100%;
+    margin: 0;
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  @include breakpoint($ipad-p) {
+    padding: 10px;
+  }
+
+  @include breakpoint($iphone-p) {
+    position: relative;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+
+  & svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.title {
+  margin-bottom: 20px;
+  color: $movies-blue-color;
+  font-family: $varela-round;
+  font-size: 40px;
+
+  @include breakpoint($mac-book) {
+    font-size: 30px;
+  }
+
+  @include breakpoint($ipad-p) {
+    margin-bottom: 10px;
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  @include breakpoint($iphone-p) {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.delimiter {
+  display: block;
+  width: 140px;
+  height: 2px;
+  margin-right: calc(100% - 140px);
+  margin-bottom: 10px;
+  float: left;
+  border-radius: 1px;
+  background-color: $movies-yellow-color;
+
+  @include breakpoint($iphone-p) {
+    display: none;
+  }
+}
+
+.overview {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  color: $movies-blue-color;
+  font-family: $varela-round;
+  font-size: 20px;
+  line-height: 22px;
+
+  @include breakpoint($mac-book) {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @include breakpoint($ipad-p) {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  @include breakpoint($iphone-p) {
+    display: none;
+  }
+}
+
+.link {
+  padding: 10px;
+  float: right;
+  transition: color .5s, fill .5s, background-color .5s;
+  border: 1px solid $movies-blue-color;
+  color: $movies-blue-color;
+  font-family: $varela-round;
+
+  & .icon {
+    transition: color .5s, fill .5s, background-color .5s;
+    fill: $movies-blue-color;
+  }
+
+  &:hover {
+    transition: color .5s, fill .5s, background-color .5s;
+    background-color: $movies-blue-color;
+    color: $main-color;
+
+    & .icon {
+      transition: color .5s, fill .5s, background-color .5s;
+      fill: $main-color;
+    }
+  }
+
+  @include breakpoint($ipad-p) {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  @include breakpoint($iphone-p) {
+    display: none;
+  }
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+  transform: translateY(2px);
+  fill: $movies-blue-color;
+
+  @include breakpoint($ipad-p) {
+    transform: translateY(3px);
+  }
+}
+
+:global(.slick-slide.slick-active) {
+  z-index: 10;
+}

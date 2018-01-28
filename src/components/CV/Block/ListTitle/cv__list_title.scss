@@ -1,0 +1,57 @@
+@import '~assets';
+
+.container {
+  height: 38px;
+  margin-top: 34px;
+  margin-bottom: 22px;
+  background-image: linear-gradient(to top, $main-color, $main-color);
+  background-repeat: repeat-x;
+  background-position: center, center;
+  background-size: 5px 2px;
+
+  &.black {
+    background-image: linear-gradient(to top, $second-color, $second-color);
+  }
+}
+
+.background {
+  @include clearfix;
+  display: inline-block;
+  padding-right: 10px;
+  padding-left: 23px;
+  background-color: $second-color;
+
+  .black & {
+    padding-left: 21px;
+    background-color: $main-color;
+  }
+}
+
+.icon {
+  width: 38px;
+  height: 38px;
+  float: left;
+  fill: $main-color;
+
+  .black & {
+    fill: $second-color;
+  }
+}
+
+.title {
+  display: inline-block;
+  height: 38px;
+  padding-left: 5px;
+  float: left;
+  color: $main-color;
+  font-family: $main-font;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 38px;
+  text-transform: uppercase;
+
+  .black & {
+    color: $second-color;
+    font-weight: 400;
+  }
+}

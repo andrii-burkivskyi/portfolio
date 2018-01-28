@@ -1,0 +1,39 @@
+@import '~assets';
+
+$second-color-light: rgba($second-color, .1);
+$gutter: 20px;
+
+.popup {
+  height: 40px;
+  margin: 0 10px;
+  color: $second-color;
+  font-family: $main-font;
+  font-size: 14px;
+  text-transform: uppercase;
+  fill: $second-color;
+
+  &:hover {
+    color: $hover-color;
+    fill: $hover-color;
+  }
+
+  &.disable {
+    color: $second-color-light;
+    fill: $second-color-light;
+    pointer-events: none;
+  }
+
+  & .text {
+    margin: 0 5px;
+    font-weight: 600;
+    line-height: 40px;
+    vertical-align: middle;
+  }
+
+  & .icon {
+    width: 18px;
+    height: 18px;
+    margin: 0 5px;
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,20 @@
+@import '~assets';
+
+$second-color-light: rgba($second-color, .1);
+$gutter: 20px;
+
+.movies {
+  display: block;
+  margin: 0 auto 40px;
+  padding: 10px;
+  transition: color .5s, background-color .5s;
+  border: 1px solid $movies-blue-color;
+  color: $movies-blue-color;
+  font-family: $varela-round;
+
+  &:hover {
+    transition: color .5s, background-color .5s;
+    background-color: $movies-blue-color;
+    color: $main-color;
+  }
+}

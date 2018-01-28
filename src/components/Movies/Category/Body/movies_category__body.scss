@@ -1,0 +1,13 @@
+@import '~assets';
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: $movies-content-wrapper - 10px;
+  margin: 40px auto;
+
+  @include breakpoint($iphone-l) {
+    margin-top: 25px;
+  }
+}

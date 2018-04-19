@@ -2,29 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from 'components/Icon';
+import bem from 'utils/bem';
 
 import styles from './button.scss';
 
-const buttonClass = ({ theme, isDisable, glyph, iconPosition }) => classNames(
-  styles.container,
-  styles[theme],
-  glyph && styles[`icon_${iconPosition}`],
-  isDisable && styles.disable
-);
-
 const Button = ({ text, glyph, iconPosition, theme, style, isDisable, onClick }) => (
   <button
-    className={buttonClass({ theme, isDisable, glyph, iconPosition })}
+    className={bem(
+      styles.container,
+      { theme, isDisable, iconPosition: glyph && iconPosition }
+    )}
     onClick={onClick}
     style={style}
   >
     {
       text &&
-        <span className={styles.text}>{text}</span>
+        <span
+          className={bem(
+            styles.text,
+            { theme, iconPosition: glyph && iconPosition }
+          )}
+        >
+          {text}
+        </span>
     }
     {
       glyph &&
-        <Icon className={styles.icon} glyph={glyph} />
+        <Icon
+          className={bem(
+            styles.icon,
+            { theme, iconPosition: glyph && iconPosition }
+          )}
+          glyph={glyph}
+        />
     }
   </button>
 );

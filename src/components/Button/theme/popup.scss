@@ -3,7 +3,7 @@
 $second-color-light: rgba($second-color, .1);
 $gutter: 20px;
 
-.popup {
+@include element(container, popup) {
   height: 40px;
   margin: 0 10px;
   color: $second-color;
@@ -17,23 +17,23 @@ $gutter: 20px;
     fill: $hover-color;
   }
 
-  &.disable {
+  @include mod(is_disable) {
     color: $second-color-light;
     fill: $second-color-light;
     pointer-events: none;
   }
+}
 
-  & .text {
+@include element(text, popup) {
     margin: 0 5px;
     font-weight: 600;
     line-height: 40px;
     vertical-align: middle;
-  }
+}
 
-  & .icon {
+@include element(icon, popup) {
     width: 18px;
     height: 18px;
     margin: 0 5px;
     vertical-align: middle;
-  }
 }

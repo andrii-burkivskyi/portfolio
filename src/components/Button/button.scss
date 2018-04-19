@@ -1,33 +1,33 @@
+@import '~assets';
 @import './theme/popup';
 @import './theme/movies';
 
-.container {
+@include element(container) {
   @include flexbox(row, left, center, false);
   width: auto;
   cursor: pointer;
 }
 
-.icon,
-.text {
+@include element(icon) {
   display: inline-block;
-}
 
-.icon_left {
-  & .icon {
+  @include mod(icon_position, left) {
     order: 0;
   }
 
-  & .text {
+  @include mod(icon_position, right) {
     order: 1;
   }
 }
 
-.icon_right {
-  & .icon {
+@include element(text) {
+  display: inline-block;
+
+  @include mod(icon_position, left) {
     order: 1;
   }
 
-  & .text {
+  @include mod(icon_position, right) {
     order: 0;
   }
 }

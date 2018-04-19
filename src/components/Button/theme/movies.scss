@@ -3,7 +3,7 @@
 $second-color-light: rgba($second-color, .1);
 $gutter: 20px;
 
-.movies {
+@include element(container, movies) {
   display: block;
   margin: 0 auto 40px;
   padding: 10px;

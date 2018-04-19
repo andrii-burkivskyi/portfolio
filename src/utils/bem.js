@@ -3,12 +3,12 @@ import snakeCase from 'lodash.snakecase';
 const bem = (elementClass, options) =>
   Object.entries(options).reduce((acc, [key, value]) => {
     const modificator = typeof value !== 'boolean'
-      ? `${snakeCase(key)}_${value}`
+      ? `${snakeCase(key)}-${value}`
       : snakeCase(key);
 
-    return acc
+    return value
       ? `${acc} ${elementClass}--${modificator}`
-      : `${elementClass}--${modificator}`;
-  }, '');
+      : acc;
+  }, elementClass);
 
 export default bem;

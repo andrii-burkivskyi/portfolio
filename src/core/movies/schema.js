@@ -1,3 +1,4 @@
+import get from 'lodash.get';
 import { Schema, arrayOf } from 'normalizr';
 
 import { DEFAULT_OBJECT, DEFAULT_ARRAY } from 'utils/constants';
@@ -58,7 +59,7 @@ export function movieDenormalize(movieEntities, genresEntities) {
 
   if (genresEntities && movieValue.genre_ids) {
     const genres = movieValue.genre_ids
-      .map((genreValue) => _.get(genresEntities, [String(genreValue), 'name']))
+      .map((genreValue) => get(genresEntities, [String(genreValue), 'name']))
       .join(' | ');
 
     movieValue = { ...movieValue, genres };

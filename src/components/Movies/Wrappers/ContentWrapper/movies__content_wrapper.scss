@@ -1,5 +1,9 @@
 @import '~assets';
 
+.container {
+  position: relative;
+}
+
 .single {
   @include clearfix();
 

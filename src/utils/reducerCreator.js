@@ -1,3 +1,4 @@
+import union from 'lodash.union';
 import { createRequestAction } from 'utils/actionCreator';
 
 const initialStateList = {
@@ -53,7 +54,7 @@ export function createFetchReducer(parameters) {
       case SUCCESS: {
         const data = isObject
           ? getDataFromAction(action)
-          : _.union(state.data, getDataFromAction(action));
+          : union(state.data, getDataFromAction(action));
 
         return {
           ...state,

@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import get from 'lodash.get';
 
 export const getModalOpenStatus = (state, modalId) => // eslint-disable-line
-  _.get(state, ['modals', modalId, 'isOpen'], false);
+  get(state, ['modals', modalId, 'isOpen'], false);

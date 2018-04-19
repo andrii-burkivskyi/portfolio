@@ -3,6 +3,7 @@
   flex-direction: $direction;
   align-items: get-align-iems($direction, $horizontal-align, $vertical-align);
   justify-content: get-justify-content($direction, $horizontal-align, $vertical-align);
+  
   @if $is-wraped {
     flex-wrap: wrap;
   }

@@ -1,5 +1,6 @@
-import _ from 'lodash';
+import pick from 'lodash.pick';
+import get from 'lodash.get';
 
 export const getQuery = (state) =>
-  _.get(state, ['routing', 'locationBeforeTransitions', 'query']);
-export const getPickedQuery = (state, queryKeys) => _.pick(getQuery(state), queryKeys);
+  get(state, ['routing', 'locationBeforeTransitions', 'query']);
+export const getPickedQuery = (state, queryKeys) => pick(getQuery(state), queryKeys);

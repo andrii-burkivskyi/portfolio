@@ -5,9 +5,9 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
 
 import PageNotFound from 'components/PageNotFound';
-import Root from 'pages/Root.jsx';
-import CV from 'pages/CV.jsx';
-import ProjectsList from 'pages/ProjectsList';
+import Root from 'pages/Root';
+import CV from 'pages/CV/CV';
+import ProjectsList from 'pages/ProjectsList/ProjectsList';
 import MoviesFront from 'pages/Movies/Front';
 import MoviesRoot from 'pages/Movies/Root';
 import MoviesSearch from 'pages/Movies/Search';

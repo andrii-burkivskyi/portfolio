@@ -1,6 +1,6 @@
 import { createFactory, Component } from 'react';
 import shallowEqual from 'fbjs/lib/shallowEqual'; // eslint-disable-line
-import _ from 'lodash';
+import pick from 'lodash.pick';
 
 const pure = (propsForUpdate) => (BaseComponent) => {
   const factory = createFactory(BaseComponent);
@@ -12,7 +12,7 @@ const pure = (propsForUpdate) => (BaseComponent) => {
   class Pure extends Component {
     shouldComponentUpdate(nextProps) {
       return propsForUpdate
-        ? !shallowEqual(_.pick(this.props, propsForUpdate), _.pick(nextProps, propsForUpdate))
+        ? !shallowEqual(pick(this.props, propsForUpdate), pick(nextProps, propsForUpdate))
         : !shallowEqual(this.props, nextProps);
     }
 

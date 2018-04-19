@@ -1,30 +1,32 @@
-import _ from 'lodash';
+import camelCase from 'lodash.camelcase';
+import toUpper from 'lodash.toupper';
+import capitalize from 'lodash.capitalize';
 
 const requestActionStates = ['request', 'skipped', 'success', 'failure', 'clear'];
 
 export const createAction = (type) => ({
   [type]: type,
-  [_.camelCase(type)]: (payload) => ({ type, ...payload })
+  [camelCase(type)]: (payload) => ({ type, ...payload })
 });
 
 export const createRequestAction = (type) => requestActionStates.reduce((acc, state) => ({
   ...acc,
   [type]: {
     ...acc[type],
-    [`${_.toUpper(state)}`]: `${type}_${_.toUpper(state)}`,
+    [`${toUpper(state)}`]: `${type}_${toUpper(state)}`,
     ALL: acc[type]
-      ? [...acc[type].ALL, `${type}_${_.toUpper(state)}`]
-      : [`${type}_${_.toUpper(state)}`]
+      ? [...acc[type].ALL, `${type}_${toUpper(state)}`]
+      : [`${type}_${toUpper(state)}`]
   },
-  [`${_.camelCase(type)}${_.capitalize(state)}`]: (payload) => ({
-    type: `${type}_${_.toUpper(state)}`,
+  [`${camelCase(type)}${capitalize(state)}`]: (payload) => ({
+    type: `${type}_${toUpper(state)}`,
     ...payload
   })
 }), {});
 
 export const createFetchAction = (parameters) => {
   const {
-    name = _.camelCase(parameters.type),
+    name = camelCase(parameters.type),
     type,
     callAPI,
     shouldCallAPI = () => true,

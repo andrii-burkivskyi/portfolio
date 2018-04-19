@@ -1,19 +1,19 @@
-import _ from 'lodash';
+import get from 'lodash.get';
 import { createSelector } from 'reselect';
 import { DEFAULT_ARRAY } from 'utils/constants';
 
 import { movieSingleDenormalize, moviesDenormalize } from './schema';
 
-const movieEntities = (state, id) => _.get(state, ['entities', 'movies', String(id)]);
-const moviesListEntities = (state) => _.get(state, ['entities', 'movies']);
-const genresListEntities = (state) => _.get(state, ['entities', 'genres']);
-const castListEntities = (state) => _.get(state, ['entities', 'cast']);
+const movieEntities = (state, id) => get(state, ['entities', 'movies', String(id)]);
+const moviesListEntities = (state) => get(state, ['entities', 'movies']);
+const genresListEntities = (state) => get(state, ['entities', 'genres']);
+const castListEntities = (state) => get(state, ['entities', 'cast']);
 
-const moviesResultsByCategory = (state, category) => _.get(state, ['movies', category, 'data']);
-const moviesIsFetchingByCategory = (state, category) => _.get(state, ['movies', category, 'isFetching']);
+const moviesResultsByCategory = (state, category) => get(state, ['movies', category, 'data']);
+const moviesIsFetchingByCategory = (state, category) => get(state, ['movies', category, 'isFetching']);
 
-export const getMoviesPageByCategory = (state, category) => _.get(state, ['movies', category, 'page']);
-export const getMoviesPagesQtyByCategory = (state, category) => _.get(state, ['movies', category, 'total_pages']);
+export const getMoviesPageByCategory = (state, category) => get(state, ['movies', category, 'page']);
+export const getMoviesPagesQtyByCategory = (state, category) => get(state, ['movies', category, 'total_pages']);
 
 export const getIsMoviesFetchingByCategories = (state, categories) =>
   categories.some((category) => moviesIsFetchingByCategory(state, category));

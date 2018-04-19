@@ -12,6 +12,8 @@ const renderListOfChildren = (children, props) =>
     (child) => renderSingleChildren(child, props)
   );
 
-export const renderChildren = (children, props) => Array.isArray(children) // eslint-disable-line
+const renderChildren = (children, props) => Array.isArray(children)
   ? renderListOfChildren(children, props)
   : renderSingleChildren(children, props);
+
+export default renderChildren;

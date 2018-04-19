@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import get from 'lodash.get';
 import formActions from 'core/forms/actions';
 import { withKey } from 'utils/reducerCreator';
 
@@ -31,17 +31,17 @@ function field(state = initialFieldState, action) {
 }
 
 const initialFormState = {
-  isFetching: false,
+  fields: {},
   error: '',
   isTouched: false,
-  fields: {}
+  isFetching: false
 };
 
 function form(state = initialFormState, action) {
   switch (action.type) {
     case CHANGE_INPUT:
     case ALLOW_VALIDATION: {
-      const fieldState = _.get(state, ['fields', action.fieldName]);
+      const fieldState = get(state, ['fields', action.fieldName]);
       return {
         ...state,
         fields: {

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import store from 'store';
-import { categoryNormalize } from 'utils/string';
 
 import { scrollTo } from 'utils/dom';
 
@@ -21,6 +20,12 @@ import moviesActions from 'core/movies/actions';
 
 
 const getSearchMovies = getMoviesByCategory();
+
+const categoryNormalize = (str) => {
+  const words = str.split(/_/g);
+  const sentence = words.join(' ');
+  return sentence.charAt(0).toUpperCase() + sentence.slice(1);
+}
 
 const mapStateToProps = (state, props) => ({
   movies: getSearchMovies(state, props.params.category),

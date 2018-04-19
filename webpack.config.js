@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const IS_DEVELOPMENT = NODE_ENV === 'development';
@@ -58,22 +59,24 @@ module.exports = {
       {
         test: /\.s(a|c)ss$/,
         exclude: /\/node_modules\//,
-        use: [
-          'style-loader',
-          'css-loader?modules&localIdentName=[name]--[local]',
-          {
-            loader: 'postcss-loader',
-            options: {
-              parser: 'postcss-scss',
-              plugins: (bundler) => [
-                require('postcss-import')({ addDependencyTo: bundler }),
-                require('precss')(),
-                require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
-              ]
-            }
-          },
-          'sass-loader'
-        ]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?modules&localIdentName=[name]--[local]',
+            {
+              loader: 'postcss-loader',
+              options: {
+                parser: 'postcss-scss',
+                plugins: (bundler) => [
+                  require('postcss-import')({ addDependencyTo: bundler }),
+                  require('precss')(),
+                  require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
+                ]
+              }
+            },
+            'sass-loader'
+          ]
+        })
       },
       {
         test: /\.css$/,
@@ -86,6 +89,7 @@ module.exports = {
   },
 
   plugins: [
+    new ExtractTextPlugin("styles.css"),
     new BundleAnalyzerPlugin(),
     new WebpackNotifierPlugin({ title: 'Webpack' }),
     new webpack.optimize.OccurrenceOrderPlugin(),

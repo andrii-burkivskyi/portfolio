@@ -1,31 +1,34 @@
 @import '~assets';
 
 .container {
-  @include clearfix;
   position: relative;
+
+  @include clearfix;
 }
 
 .info_box {
-  display: block;
   position: absolute;
   bottom: 0;
   left: 0;
+
+  display: block;
+
   width: 50%;
   margin: 40px;
   padding: 20px;
+
   background-color: rgba($main-color, .8);
 
   @include breakpoint($ipad-p) {
     width: 100%;
     margin: 0;
+
     font-size: 22px;
     line-height: 26px;
   }
-
   @include breakpoint($ipad-p) {
     padding: 10px;
   }
-
   @include breakpoint($iphone-p) {
     position: relative;
   }
@@ -48,34 +51,38 @@
 
 .title {
   margin-bottom: 20px;
+
   color: $movies-blue-color;
+
   font-family: $varela-round;
   font-size: 40px;
 
   @include breakpoint($mac-book) {
     font-size: 30px;
   }
-
   @include breakpoint($ipad-p) {
     margin-bottom: 10px;
+
     font-size: 22px;
     line-height: 26px;
   }
-
   @include breakpoint($iphone-p) {
-    text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 
 .delimiter {
   display: block;
+  float: left;
+
   width: 140px;
   height: 2px;
   margin-right: calc(100% - 140px);
   margin-bottom: 10px;
-  float: left;
+
   border-radius: 1px;
   background-color: $movies-yellow-color;
 
@@ -86,9 +93,12 @@
 
 .overview {
   display: block;
+
   width: 100%;
   margin-bottom: 20px;
+
   color: $movies-blue-color;
+
   font-family: $varela-round;
   font-size: 20px;
   line-height: 22px;
@@ -97,49 +107,55 @@
     font-size: 14px;
     line-height: 18px;
   }
-
   @include breakpoint($ipad-p) {
     margin-bottom: 10px;
+
     font-size: 12px;
     line-height: 14px;
   }
-
   @include breakpoint($iphone-p) {
     display: none;
   }
 }
 
 .link {
-  padding: 10px;
   float: right;
+
+  padding: 10px;
+
   transition: color .5s, fill .5s, background-color .5s;
-  border: 1px solid $movies-blue-color;
+
   color: $movies-blue-color;
+  border: 1px solid $movies-blue-color;
+
   font-family: $varela-round;
+
+  @include breakpoint($ipad-p) {
+    padding: 5px 10px;
+
+    font-size: 14px;
+  }
+  @include breakpoint($iphone-p) {
+    display: none;
+  }
 
   & .icon {
     transition: color .5s, fill .5s, background-color .5s;
+
     fill: $movies-blue-color;
   }
 
   &:hover {
     transition: color .5s, fill .5s, background-color .5s;
-    background-color: $movies-blue-color;
+
     color: $main-color;
+    background-color: $movies-blue-color;
 
     & .icon {
       transition: color .5s, fill .5s, background-color .5s;
+
       fill: $main-color;
     }
-  }
-
-  @include breakpoint($ipad-p) {
-    padding: 5px 10px;
-    font-size: 14px;
-  }
-
-  @include breakpoint($iphone-p) {
-    display: none;
   }
 }
 
@@ -147,9 +163,10 @@
   width: 15px;
   height: 15px;
   margin-left: 10px;
-  transform: translateY(2px);
-  fill: $movies-blue-color;
 
+  transform: translateY(2px);
+
+  fill: $movies-blue-color;
   @include breakpoint($ipad-p) {
     transform: translateY(3px);
   }

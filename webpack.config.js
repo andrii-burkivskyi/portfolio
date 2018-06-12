@@ -3,6 +3,7 @@ const path = require('path');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const chanks = require("./webpack/chanks");
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const IS_DEVELOPMENT = NODE_ENV === 'development';
@@ -99,6 +100,13 @@ module.exports = {
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en\-gb/),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.LoaderOptionsPlugin({ debug: true }),
+    // ...chanks(webpack)([
+    //   ["react-dom", "node_modules\\/(?:react\\-dom)"],
+    //   ["moment-lodash", "node_modules\\/(?:moment|lodash)"],
+    //   ["fixed-data-table", "node_modules\\/(?:fixed-data-table-2)"],
+    //   ["core-js", "node_modules\\/(?:core-js)"],
+    //   ["vendor", "node_modules"],
+    // ])
     new webpack.optimize.CommonsChunkPlugin({
       name: "vendor",
       minChunks: function (module) {

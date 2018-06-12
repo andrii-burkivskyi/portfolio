@@ -2,38 +2,48 @@
 
 .container {
   margin-bottom: 30px;
-  border-bottom: 2px solid $second-color;
+
   color: $second-color;
+  border-bottom: 2px solid $second-color;
 }
 
 .title {
   display: inline-block;
+
   width: 100%;
   padding: 100px 20px 0;
-  color: $second-color;
-  font-family: $main-font;
-  font-size: 60px;
+
   text-align: center;
   text-transform: uppercase;
+
+  color: $second-color;
+
+  font-family: $main-font;
+  font-size: 60px;
 
   @include breakpoint($ipad-p) {
     padding-top: 50px;
     padding-bottom: 10px;
+
     font-size: 50px;
   }
 }
 
 .description {
   display: inline-block;
+
   width: 100%;
   padding: 30px 20px 70px;
+
+  text-align: center;
+
   font-family: $main-font;
   font-size: 20px;
-  text-align: center;
 
   @include breakpoint($ipad-p) {
     padding-top: 10px;
     padding-bottom: 20px;
+
     font-size: 14px;
   }
 }

@@ -2,13 +2,16 @@
 
 .container {
   display: block;
+  float: right;
+
   width: calc(100% - 260px);
   padding-bottom: 26px;
-  float: right;
+
   background-color: $main-color;
 
   @include breakpoint($iphone-l) {
-    width: 100%;
     float: left;
+
+    width: 100%;
   }
 }

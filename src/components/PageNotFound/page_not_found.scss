@@ -5,37 +5,47 @@
   height: auto;
   margin: 0 auto;
   padding: 90px;
+
   text-align: center;
 }
 
 .title {
+  text-align: center;
+
   color: $second-color;
+
   font-family: $main-font;
   font-size: 190px;
-  text-align: center;
 
 }
 
 .content {
   margin-bottom: 80px;
+
+  text-align: center;
+
   color: $second-color;
+
   font-family: $main-font;
   font-size: 80px;
-  text-align: center;
 }
 
 .link {
   display: inline;
+
   margin: 0 auto;
   padding: 15px;
+
   transition: color .5s, background-color .5s;
-  border: 1px solid $second-color;
+
   color: $second-color;
+  border: 1px solid $second-color;
+
   font-family: $main-font;
   font-size: 20px;
 
   &:hover {
-    background-color: $second-color;
     color: $main-color;
+    background-color: $second-color;
   }
 }

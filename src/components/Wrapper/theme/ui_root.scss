@@ -1,0 +1,6 @@
+@import '~assets';
+
+@include element(container, ui_root) {
+  min-height: 100vh;
+  padding-top: 25px;
+}

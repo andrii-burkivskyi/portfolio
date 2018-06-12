@@ -1,13 +1,14 @@
 @import '~assets';
 
 .container {
-  @include breakpoint($iphone-l) {
-    width: 100%;
-  }
+  float: left;
 
   width: 300px;
   height: auto;
-  float: left;
+
+  @include breakpoint($iphone-l) {
+    width: 100%;
+  }
 }
 
 .image {

@@ -2,7 +2,9 @@ import get from 'lodash.get';
 import formActions from 'core/forms/actions';
 import { withKey } from 'utils/reducerCreator';
 
-const { CHANGE_INPUT, ALLOW_VALIDATION, CLEAR_FORM, SUBMIT_FORM } = formActions;
+const {
+  CHANGE_INPUT, ALLOW_VALIDATION, CLEAR_FORM, SUBMIT_FORM
+} = formActions;
 
 const initialFieldState = {
   value: undefined,

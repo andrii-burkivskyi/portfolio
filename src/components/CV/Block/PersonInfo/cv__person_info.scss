@@ -7,6 +7,7 @@
 
 .image {
   display: block;
+
   width: 115px; //IE fix: image width bigger then svg height in IE
   height: 115px; //IE fix: image height bigger then svg height in IE
   margin: 0 auto;
@@ -14,25 +15,30 @@
 
 .mask {
   display: block;
+
   width: 118px;
   height: 118px;
   margin: 0 auto;
   margin-top: -115px; //Firefox fix: appear small strip at bottom
+
   fill: $second-color;
 }
 
 .name,
 .sername {
+  text-align: center;
+  text-transform: uppercase;
+
   color: $main-color;
+
   font-family: $main-font;
   font-size: 30px;
   line-height: 28px;
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .name {
   padding-top: 5px;
+
   font-weight: 100;
 }
 
@@ -43,16 +49,20 @@
 .position {
   width: 100%;
   padding-top: 10px;
+
+  text-align: center;
+
   color: $main-color;
+
   font-family: $main-font;
   font-size: 20px;
   font-weight: 100;
   line-height: 22px;
-  text-align: center;
 }
 
 .temp {
   width: 38px;
   height: 38px;
+
   fill: $main-color;
 }

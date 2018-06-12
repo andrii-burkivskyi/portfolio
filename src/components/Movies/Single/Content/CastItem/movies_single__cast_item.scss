@@ -1,31 +1,34 @@
 @import '~assets';
 
 .container {
-  @include breakpoint($ipad-l) {
-    width: 100%;
-  }
-
   width: 50%;
   min-height: 150px;
   margin-bottom: 20px;
   padding-right: 20px;
+
+  @include breakpoint($ipad-l) {
+    width: 100%;
+  }
 }
 
 .image {
+  float: left;
+
   width: 95px;
   height: auto;
   margin-right: 20px;
-  float: left;
 }
 
 .name {
   display: block;
+
   font-size: 20px;
   line-height: 30px;
 }
 
 .character {
   display: block;
+
   font-size: 16px;
   line-height: 30px;
 }

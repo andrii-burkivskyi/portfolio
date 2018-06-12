@@ -11,7 +11,9 @@ const actions = {
 const changeInputField = (event, formName, fieldName, validations) => (dispatch) => {
   const { value } = event.target;
   const error = validate(value, validations);
-  dispatch(actions.changeInput({ value, error, formName, fieldName }));
+  dispatch(actions.changeInput({
+    value, error, formName, fieldName
+  }));
 };
 
 const blurInputField = (event, formName, fieldName) => (dispatch) => {

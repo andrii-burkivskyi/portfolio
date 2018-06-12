@@ -1,42 +1,53 @@
 @import '~assets';
 
 .container {
-  display: flex;
   position: relative;
+
+  display: flex;
   align-items: center;
   justify-content: space-between;
+
   height: 16px;
   padding: 0 25px;
+
   color: $main-color;
+
   font-weight: 100;
 
   &::before {
-    display: block;
     position: absolute;
     top: 50%;
     left: 38px;
+
+    display: block;
+
     width: 5px;
     height: 5px;
+
+    content: '';
     transform: translateY(-50%);
+
     border-radius: 50%;
     background-color: $main-color;
-    content: '';
   }
 
   &.black {
+    float: left;
+
     width: 50%;
     height: 15px; // fix ie bag
     margin-bottom: 5px;
-    float: left;
-    color: $second-color;
-    font-weight: 400;
 
-    &::before {
-      background-color: $second-color;
-    }
+    color: $second-color;
+
+    font-weight: 400;
 
     @include breakpoint($ipad-p) {
       width: 100%;
+    }
+
+    &::before {
+      background-color: $second-color;
     }
   }
 }
@@ -45,21 +56,27 @@
   width: 60%; // ff fix item align
   height: 100%;
   padding-left: 28px;
+
+  text-align: left;
+  text-transform: uppercase;
+
   color: inherit;
+
   font-family: $main-font;
   font-size: 12px;
   font-weight: inherit;
   line-height: 16px;
-  text-align: left;
-  text-transform: uppercase;
+
   -webkit-font-smoothing: antialised; // sass-lint:disable-line no-vendor-prefixes
 }
 
 .chart {
   display: block;
+  float: left;
+
   width: 40%;
   height: 8px;
-  float: left;
+
   border: 1px solid $main-color;
   border-radius: 5px;
   background-image: linear-gradient(to top, $main-color, $main-color);

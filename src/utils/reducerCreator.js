@@ -38,7 +38,9 @@ export function createFetchReducer(parameters) {
     throw new Error('Expected [ getPaginationFromAction ] to be a function.');
   }
 
-  const { REQUEST, SKIPPED, SUCCESS, FAILURE, CLEAR } = createRequestAction(type)[type];
+  const {
+    REQUEST, SKIPPED, SUCCESS, FAILURE, CLEAR
+  } = createRequestAction(type)[type];
   const initialState = isObject ? initialStateObject : initialStateList;
 
   return (state = initialState, action) => {

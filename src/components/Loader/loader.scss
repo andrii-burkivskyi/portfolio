@@ -9,21 +9,25 @@
 }
 
 .spinner {
-  margin: 100px auto 50px;
   width: 100px;
   height: 100px;
+  margin: 100px auto 50px;
+
   text-align: center;
+
   font-size: 10px;
 }
 
 .spinner > div {
-  background-color: #333;
-  margin: 0 1px;
-  height: 100%;
-  width: 6px;
   display: inline-block;
 
+  width: 6px;
+  height: 100%;
+  margin: 0 1px;
+
   animation: sk_stretchdelay 1.2s infinite ease-in-out;
+
+  background-color: #333;
 }
 
 .spinner .rect1 {
@@ -35,32 +39,33 @@
 }
 
 .spinner .rect3 {
-  animation-delay: -1.0s;
+  animation-delay: -1s;
 }
 
 .spinner .rect4 {
-  animation-delay: -0.9s;
+  animation-delay: -.9s;
 }
 
 .spinner .rect5 {
-  animation-delay: -0.8s;
+  animation-delay: -.8s;
 }
 
 .text {
   text-align: center;
-  font-size: 40px;
-  font-family: $main-font;
-}
 
-@-webkit-keyframes sk_stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
-  20% { -webkit-transform: scaleY(1.0) }
+  font-family: $main-font;
+  font-size: 40px;
 }
 
 @keyframes sk_stretchdelay {
-  0%, 40%, 100% {
-    transform: scaleY(0.4);
-  }  20% {
-    transform: scaleY(1.0);
+  0%,
+  40%,
+  100% {
+    transform: scaleY(.4);
+  }
+
+  
+  20% {
+    transform: scaleY(1);
   }
 }

@@ -1,46 +1,58 @@
 @import '~assets';
 
 .container {
-  @include breakpoint($ipad-p) {
-    display: block;
-    height: 25px;
-  }
+  position: relative;
 
   display: none;
-  position: relative;
+  float: right;
+
   width: 20px;
   height: 25px;
   margin-right: 10px;
-  float: right;
-  transform: rotate(0deg);
-  transition: .5s ease-in-out;
-  border: 0;
+
   cursor: pointer;
+  transition: .5s ease-in-out;
+  transform: rotate(0deg);
+
+  border: 0;
+
+  @include breakpoint($ipad-p) {
+    display: block;
+
+    height: 25px;
+  }
 
   & span {
-    display: block;
     position: absolute;
     left: 0;
+
+    display: block;
+
     width: 100%;
     height: 2px;
-    transform: rotate(0deg);
+
     transition: .25s ease-in-out;
+    transform: rotate(0deg);
+
+    opacity: 1;
     border-radius: 9px;
     background: $main-color;
-    opacity: 1;
 
     &:nth-child(1) {
       top: 5px;
+
       transform-origin: left center;
     }
 
     &:nth-child(2) {
       top: 11px;
+
       transform-origin: left center;
     }
 
     &:nth-child(3) {
       top: 17px;
+
       transform-origin: left center;
     }
   }
@@ -49,16 +61,19 @@
   &.is_open {
     & span:nth-child(1) {
       top: 25%;
+
       transform: rotate(45deg);
     }
 
     & span:nth-child(2) {
       width: 0%;
+
       opacity: 0;
     }
 
     & span:nth-child(3) {
       top: 75%;
+
       transform: rotate(-45deg);
     }
   }

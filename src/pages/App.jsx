@@ -13,6 +13,7 @@ import MoviesRoot from 'pages/Movies/Root';
 import MoviesSearch from 'pages/Movies/Search';
 import MoviesCategory from 'pages/Movies/Category';
 import MoviesSingle from 'pages/Movies/Single';
+import UIRoot from 'pages/UI/Root';
 
 import store from 'store';
 
@@ -29,6 +30,9 @@ const App = () => (
           <Route path="search" {...MoviesSearch} />
           <Route path="category/:category" {...MoviesCategory} />
           <Route path="single/:id" {...MoviesSingle} />
+        </Route>
+        <Route path="ui">
+            <IndexRoute {...UIRoot} />
         </Route>
         <Route path="*" component={PageNotFound} />
       </Route>

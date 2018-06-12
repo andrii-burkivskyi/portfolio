@@ -3,9 +3,11 @@
 @import './theme/movies';
 
 @include element(container) {
-  @include flexbox(row, left, center, false);
   width: auto;
+
   cursor: pointer;
+
+  @include flexbox(row, left, center, false);
 }
 
 @include element(icon) {
@@ -26,7 +28,7 @@
   @include mod(icon_position, left) {
     order: 1;
   }
-
+  
   @include mod(icon_position, right) {
     order: 0;
   }

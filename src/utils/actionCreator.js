@@ -36,7 +36,9 @@ export const createFetchAction = (parameters) => {
   } = parameters;
 
   const actionConstants = createRequestAction(type)[type];
-  const { REQUEST, SKIPPED, SUCCESS, FAILURE } = actionConstants;
+  const {
+    REQUEST, SKIPPED, SUCCESS, FAILURE
+  } = actionConstants;
 
   const funcAction = (action = {}) => async (dispatch, getState) => {
     const state = getState();
@@ -62,10 +64,10 @@ export const createFetchAction = (parameters) => {
         });
       }
     } catch (error) {
-      console.error(error); // eslint-disable-line
+      console.error(await error); // eslint-disable-line
       dispatch({
         type: FAILURE,
-        error,
+        error: await error,
         key: getKeyFromAction(action)
       });
     }
